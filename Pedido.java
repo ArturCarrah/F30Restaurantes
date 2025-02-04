@@ -10,6 +10,18 @@ public class Pedido {
         this.plate = plate;
     }
 
+    public double getPreco() {
+        return plate.getPrice();  // O preço vem direto do enum
+    }
+
+    public Cardapio getItem() {
+        return plate;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
     public void exibirPedido() {
         System.out.println("Pedido #" + orderNumber);
         System.out.println("Prato: " + plate);
