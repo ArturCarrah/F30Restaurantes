@@ -1,15 +1,13 @@
 package trabalhotrinta;
 
-public class Funcionarios {
+public abstract class Funcionarios {
     protected String name;
     protected double salary;
-    protected String turn;
     private static int employersCounter = 0;
 
-    public Funcionarios(String name, double salary, String turn) {
+    public Funcionarios(String name, double salary) {
         this.name = name;
         this.salary = salary;
-        this.turn = turn;
         employersCounter++;
     }
 
@@ -21,13 +19,6 @@ public class Funcionarios {
         this.salary = salary;
     }
     
-    public void setTurn (String turn) {
-        this.turn = turn;
-    }
-    
-    public void showInfo() {
-        System.out.println("Nome: " + name);
-        System.out.println("Salário: R$" + salary);
-        System.out.println("Turno: " + turn);
-    }
+    public abstract void showInfo();
+    //cada subclasse implementa por meio de um @Override 
 }
