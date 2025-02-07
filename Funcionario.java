@@ -1,11 +1,12 @@
 package trabalhotrinta;
 
-public abstract class Funcionarios {
+public abstract class Funcionario {
     protected String name;
     protected double salary;
     private static int employersCounter = 0;
 
-    public Funcionarios(String name, double salary) {
+    //criar tratamento para fornecimento de parâmetros inválidos
+    public Funcionario (String name, double salary) {
         this.name = name;
         this.salary = salary;
         employersCounter++;
@@ -18,7 +19,8 @@ public abstract class Funcionarios {
     public void setSalary (double salary) {
         this.salary = salary;
     }
-    
+
+    //preferir a formatação toString
     public abstract void showInfo();
     //cada subclasse implementa por meio de um @Override 
 }
