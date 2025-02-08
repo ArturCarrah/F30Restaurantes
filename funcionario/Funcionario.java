@@ -5,9 +5,9 @@ public abstract class Funcionario {
     protected double salario;
     private static int quantidadeFuncionarios = 0;
 
-    //criar tratamento para fornecimento de parâmetros inválidos
+    // TODO: criar tratamento para fornecimento de parâmetros inválidos
     public Funcionario (String nome, double salario) {
-        //if nome == "" || salario <= 0 throw new ParametroInvalidoException
+        // if nome == "" || salario <= 0 throw new ParametroInvalidoException
         this.nome = nome;
         this.salario = salario;
         quantidadeFuncionarios++;
@@ -25,11 +25,13 @@ public abstract class Funcionario {
         return this.salario;
     }
 
+    public abstract void calcularSalario();
+
     public String getNome(){
         return this.nome;
     }
 
-    //preferir a formatação toString
+    // preferir a formatação toString
     public abstract void showInfo();
-    //cada subclasse implementa por meio de um @Override 
+    // cada subclasse implementa por meio de um @Override 
 }

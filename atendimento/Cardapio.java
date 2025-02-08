@@ -2,35 +2,35 @@ package atendimento;
 
 public enum Cardapio {
     ARROZ(10.0, 1), 
-    BATATA_FRITA(15.0, 2), 
+    BATATA_FRITA(15.0, 2), // Caralho batatinha é realmente 15 conto?
     PIZZA(30.0, 3), 
     COCA_COLA(5.0, 4);
 
-    //atributos
-    private double price;
-    private int plateCode;
+    // atributos
+    private double preco;
+    private int codigo;
 
-    //construtor
-    Cardapio(double price, int plateNumber) {
-        this.price = price;
-        this.plateCode = plateNumber;
+    // construtor do enum
+    Cardapio(double preco, int codigo) {
+        this.preco = preco;
+        this.codigo = codigo;
     }
 
-    //útil para quando um prato for pedido, enviar o preço dele para a conta, fazendo assim a soma do que foi pedido ao total da mesa
-    public double getPrice() {
-        return price;
+    
+    public double getPreco() {
+        return preco;
     }
 
-    //útil para quando um determinado prato for pedido, enviar o código dele para a cozinha para que esta manipule da forma que for necessário
-    public int getPlateNumber() {
-        return plateCode;
+    
+    public int getCodigo() {
+        return codigo;
     }
 
-    //coloquei caso queira percorrer a lista de pratos
+    // coloquei caso queira percorrer a lista de pratos
     /*
-    public static Cardapio getPlate(int plateNumber) {
+    public static Cardapio getPlate(int codigo) {
         for (Cardapio plate : Cardapio.values()) {
-            if (plate.getPlateNumber() == plateNumber) {
+            if (plate.getcodigo() == codigo) {
                 return plate;
             }
         }
