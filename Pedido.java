@@ -1,30 +1,34 @@
 package trabalhotrinta;
         
 public class Pedido {
-    private int orderNumber;
-    private Cardapio plate;
     
-    //ver de automatizar esse input do pedido -> só fazer ele iterar automaticamente qnd for usar 
-    public Pedido(int orderNumber, Cardapio plate) {
+    private int orderNumber = 0;
+    private Cardapio dish;
+    
+    public Pedido(Cardapio dish) {
+        orderNumber++;
         this.orderNumber = orderNumber;
-        this.plate = plate;
+        this.dish = dish;
     }
 
-    public double getPreco() {
-        return plate.getPrice();  // O preço vem direto do enum
+    //abre brecha para o cliente perguntar o preço
+    public double getOrderPrice() {
+        return dish.getDishPrice();
     }
 
+    //
     public Cardapio getItem() {
-        return plate;
+        return dish;
     }
 
-    public int getCodigo() {
-        return codigo;
+    //da p pensar em algo na cozinha que siga a ordem de preferencia baseado nisso aq
+    public int getOrderNumber() {
+        return orderNumber;
     }
 
-    public void exibirPedido() {
+    public void shorOrder() {
         System.out.println("Pedido #" + orderNumber);
-        System.out.println("Prato: " + plate);
-        System.out.println("Preço: R$" + plate.getPrice());
+        System.out.println("Prato: " + dish);
+        System.out.println("Preço: R$" + dish.getDishPrice());
     }
 }
