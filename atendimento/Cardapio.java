@@ -1,4 +1,4 @@
-package trabalhotrinta;
+package atendimento;
 
 public enum Cardapio {
     ARROZ(10.0, 1), 

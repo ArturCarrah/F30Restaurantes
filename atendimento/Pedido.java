@@ -1,14 +1,16 @@
-package trabalhotrinta;
+package atendimento;
         
-public class Pedido {
-    private int orderNumber;
-    private Cardapio plate;
+public interface Pedido {
+    //private int orderNumber;
+    //private Cardapio plate;
     
     //ver de automatizar esse input do pedido -> só fazer ele iterar automaticamente qnd for usar 
     public Pedido(int orderNumber, Cardapio plate) {
         this.orderNumber = orderNumber;
         this.plate = plate;
     }
+
+    public Pedido fazerPedido();
 
     public double getPreco() {
         return plate.getPrice();  // O preço vem direto do enum
