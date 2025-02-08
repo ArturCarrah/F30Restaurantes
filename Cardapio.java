@@ -7,31 +7,31 @@ public enum Cardapio {
     COCA_COLA(5.0, 4);
 
     //atributos
-    private double price;
-    private int plateCode;
+    private double dishPrice;
+    private int dishCode;
 
     //construtor
-    Cardapio(double price, int plateNumber) {
-        this.price = price;
-        this.plateCode = plateNumber;
+    Cardapio(double dishPrice, int dishCode) {
+        this.dishPrice = dishPrice;
+        this.dishCode = dishCode;
     }
 
     //útil para quando um prato for pedido, enviar o preço dele para a conta, fazendo assim a soma do que foi pedido ao total da mesa
-    public double getPrice() {
-        return price;
+    public double getDishPrice() {
+        return dishPrice;
     }
 
     //útil para quando um determinado prato for pedido, enviar o código dele para a cozinha para que esta manipule da forma que for necessário
-    public int getPlateNumber() {
-        return plateCode;
+    public int getDishCode() {
+        return dishCode;
     }
 
     //coloquei caso queira percorrer a lista de pratos
     /*
-    public static Cardapio getPlate(int plateNumber) {
+    public static Cardapio getPlate(int plateCode) {
         for (Cardapio plate : Cardapio.values()) {
-            if (plate.getPlateNumber() == plateNumber) {
-                return plate;
+            if (plate.getDishCode() == dishCode) {
+                return dish
             }
         }
         return null; // Prato não encontrado
