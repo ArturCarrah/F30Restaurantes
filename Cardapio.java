@@ -12,25 +12,25 @@ public enum Cardapio {
 
     //construtor
     Cardapio(double precoPrato, int pratoCodigo) {
-        this.dishPrice = dishPrice;
-        this.dishCode = dishCode;
+        this.precoPrato = precoPrato;
+        this.pratoCodigo = pratoCodigo;
     }
 
     //útil para quando um prato for pedido, enviar o preço dele para a conta, fazendo assim a soma do que foi pedido ao total da mesa
     public double getPrecoPrato() {
-        return dishPrice;
+        return precoPrato;
     }
 
     //útil para quando um determinado prato for pedido, enviar o código dele para a cozinha para que esta manipule da forma que for necessário
     public int getPratoCodigo() {
-        return dishCode;
+        return pratoCodigo;
     }
 
     //coloquei caso queira percorrer a lista de pratos
     /*
     public static Cardapio getPlate(int plateCode) {
         for (Cardapio plate : Cardapio.values()) {
-            if (plate.getDishCode() == dishCode) {
+            if (plate.getPratoCodigo() == pratoCodigo) {
                 return dish
             }
         }
