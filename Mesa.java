@@ -1,27 +1,27 @@
 package trabalhotrinta;
 
 public class Mesa {
-    protected double totalSpent;
-    protected int tableNumber = 0;
-    protected boolean isOcuppied;
+    protected double totalGasto;
+    protected int numeroMesa = 0;
+    protected boolean estaOcupada;
     
-    public Mesa (double totalSpent, boolean isOcuppied) {
-        tableNumber++;
-        this.tableNumber = tableNumber;
-        this.totalSpent = totalSpent;
-        this.isOcuppied = isOcuppied;
+    public Mesa (double totalGasto, boolean estaOcupada) {
+        numeroMesa++;
+        this.numeroMesa = numeroMesa;
+        this.totalGastot = totalGasto;
+        this.estaOcupada = estaOcupada;
     }
     
     //
-    public void setOrder(Pedido pedido){
+    public void setPedido(Pedido pedido){
         
     }
     
     //retorna o quanto deve ser pago e "limpa" a mesa
-    public double payBill(double totalSpent) {
-        System.out.println("O total a ser pago é: " + totalSpent);
-        totalSpent = 0;
-        isOcuppied = false;
+    public double realizarPagamento(double totaGasto) {
+        System.out.println("O total a ser pago é: " + totalGasto);
+        totalGasto = 0;
+        estaOcupado = false;
         return 0;
     }
 }

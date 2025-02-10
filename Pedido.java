@@ -2,28 +2,28 @@ package trabalhotrinta;
         
 public class Pedido {
     
-    private int orderNumber = 0;
-    private Cardapio dish;
+    private int numeroPedido = 0;
+    private Cardapio prato;
     
-    public Pedido(Cardapio dish) {
-        orderNumber++;
-        this.orderNumber = orderNumber;
-        this.dish = dish;
+    public Pedido(Cardapio prato) {
+        numeroPedido++;
+        this.numeroPedido = numeroPedido;
+        this.prato = prato;
     }
 
     //abre brecha para o cliente perguntar o preço
-    public double getOrderPrice() {
-        return dish.getDishPrice();
+    public double getPrecoPedido() {
+        return prato.getPrecoPedido();
     }
 
     //
     public Cardapio getItem() {
-        return dish;
+        return prato;
     }
 
     //da p pensar em algo na cozinha que siga a ordem de preferencia baseado nisso aq
-    public int getOrderNumber() {
-        return orderNumber;
+    public int getNumeroPedido() {
+        return numeroPedido;
     }
 
     public void shorOrder() {
