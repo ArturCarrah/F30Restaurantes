@@ -33,5 +33,5 @@ public abstract class Funcionario {
 
 
     //each subclass must define its own way of calculating salary based on the employer's role
-    public abstract double calculateSalario();
+    public abstract double calcularSalario();
 }
