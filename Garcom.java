@@ -3,24 +3,24 @@ package trabalhotrinta;
 public class Garcom extends Funcionario{
     
     
-    protected int tablesServed;
+    protected int mesasServidas;
 
     
-    public Garcom(String name, double salary) {
-        super(name, salary);
+    public Garcom(String nome, double salario) {
+        super(nome, salario);
     }
 
     
     @Override
-    public double calculateSalary() {
+    public double calcularSalario() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
     
     //here we search for a dish using its code to scroll through the list of dishes
-    public void placeOrder(int dishCode){
-        for (Cardapio plate : Cardapio.values()) {
-            if (plate.getDishCode() == dishCode) {
+    public void fazerPedido(int pratoCodigo){
+        for (Cardapio prato : Cardapio.values()) {
+            if (prato.getPratoCodigo() == pratoCodigo) {
                 //we must elaborate the logic: take the dish and send to kitchen
             }
         }
