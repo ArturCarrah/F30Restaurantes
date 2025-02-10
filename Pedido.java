@@ -26,9 +26,9 @@ public class Pedido {
         return numeroPedido;
     }
 
-    public void shorOrder() {
-        System.out.println("Pedido #" + orderNumber);
-        System.out.println("Prato: " + dish);
-        System.out.println("Preço: R$" + dish.getDishPrice());
+    public void apresentarPedido() {
+        System.out.println("Pedido #" + numeroPedido);
+        System.out.println("Prato: " + prato);
+        System.out.println("Preço: R$" + prato.getPratoPedido());
     }
 }
