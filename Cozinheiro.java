@@ -10,7 +10,7 @@ public class Cozinheiro extends Funcionario{
     }
 
     @Override
-    public double calculateSalary() {
+    public double calcularSalario() {
         return 0;
     }
 
