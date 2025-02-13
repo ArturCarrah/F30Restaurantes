@@ -5,7 +5,7 @@ public class Mesa implements Pedido{
     private int numeroMesa;
     private boolean isOcupada;
     
-    // TODO: implementar os métodos abstratos da interface Pedido
+    // TO DO: implementar os métodos abstratos da interface Pedido
 
     public Mesa(int numeroMesa, boolean isOcupada) {
         this.numeroMesa = numeroMesa;
@@ -31,7 +31,7 @@ public class Mesa implements Pedido{
         }
         this.totalGasto = this.totalGasto + prato.getPreco();
 
-        // TODO: Implementar um jeito de passar o prato pro garçom
+        // TO DO: Implementar um jeito de passar o prato pro garçom
         // O pedido tem que ir Mesa -> Garçom -> Cozinha
 
     }
