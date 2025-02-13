@@ -1,4 +1,6 @@
-package trabalhotrinta;
+package trabalhotrinta.cozinha;
+
+import trabalhotrinta.atendimento.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;

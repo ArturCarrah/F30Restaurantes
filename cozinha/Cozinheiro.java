@@ -1,6 +1,9 @@
-package trabalhotrinta;
+package trabalhotrinta.cozinha;
 
-public class Cozinheiro extends Funcionario{
+import trabalhotrinta.atendimento.Pedido;
+import trabalhotrinta.funcionario.Funcionario;
+
+public class Cozinheiro extends Funcionario {
     protected int habilidade;
     protected boolean preparandoPedido;
     protected boolean ehChefe;

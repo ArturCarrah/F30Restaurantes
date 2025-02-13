@@ -1,4 +1,4 @@
-package trabalhotrinta;
+package trabalhotrinta.funcionario;
 
 public abstract class Funcionario {
 

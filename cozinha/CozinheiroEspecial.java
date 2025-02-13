@@ -1,4 +1,6 @@
-package trabalhotrinta;
+package trabalhotrinta.cozinha;
+
+import trabalhotrinta.atendimento.Pedido;
 
 public class CozinheiroEspecial extends Cozinheiro {
     private int especialidade;

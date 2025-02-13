@@ -1,5 +1,5 @@
-package trabalhotrinta;
-        
+package trabalhotrinta.atendimento;
+
 public class Pedido {
     
     private int numeroPedido = 0;

@@ -1,4 +1,4 @@
-package trabalhotrinta;
+package trabalhotrinta.atendimento;
 
 public class Mesa {
     protected double totalGasto;

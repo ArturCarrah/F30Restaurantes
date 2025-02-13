@@ -1,6 +1,8 @@
-package trabalhotrinta;
+package trabalhotrinta.atendimento;
 
-public class Garcom extends Funcionario{
+import trabalhotrinta.funcionario.Funcionario;
+
+public class Garcom extends Funcionario {
     
     
     protected int mesasServidas;
