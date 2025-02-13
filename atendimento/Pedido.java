@@ -1,34 +1,19 @@
 package trabalhotrinta.atendimento;
 
-public class Pedido {
+public interface Pedido {
+    // Isso aqui não precisa pq já tá no enum
+    //private int orderNumber;
+    //private Cardapio plate;
     
-    private int numeroPedido = 0;
-    private Cardapio prato;
+    // Na interface vamos declarar apenas os esqueletos
+    // dos métodos a serem implementados
+    public Pedido fazerPedido();
+
+    public double getPreco();
+
+    public Cardapio consultarPrato();
+
+    public int getCodigo();
+
     
-    public Pedido(Cardapio prato) {
-        numeroPedido++;
-        this.numeroPedido = numeroPedido;
-        this.prato = prato;
-    }
-
-    //abre brecha para o cliente perguntar o preço
-    public double getPrecoPedido() {
-        return prato.getPrecoPedido();
-    }
-
-    //
-    public Cardapio getItem() {
-        return prato;
-    }
-
-    //da p pensar em algo na cozinha que siga a ordem de preferencia baseado nisso aq
-    public int getNumeroPedido() {
-        return numeroPedido;
-    }
-
-    public void apresentarPedido() {
-        System.out.println("Pedido #" + numeroPedido);
-        System.out.println("Prato: " + prato);
-        System.out.println("Preço: R$" + prato.getPratoPedido());
-    }
 }
