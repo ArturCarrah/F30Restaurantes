@@ -2,7 +2,7 @@ package trabalhotrinta.atendimento;
 
 import trabalhotrinta.funcionario.Funcionario;
 
-public class Garcom extends Funcionario {
+public class Garcom extends Funcionario implements Pedido{
     
     
     protected int mesasServidas;
