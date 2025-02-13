@@ -3,7 +3,7 @@ package trabalhotrinta;
 public class Cozinheiro extends Funcionario{
     protected int habilidade;
     protected boolean preparandoPedido;
-    protected boolean chefe;
+    protected boolean ehChefe;
 
     public void prepararPedido(Pedido pedido){
         preparandoPedido = true;
@@ -14,11 +14,11 @@ public class Cozinheiro extends Funcionario{
         return 0;
     }
 
-    public Cozinheiro(String name, double salario, int habilidade, boolean preparandoPedido, boolean chefe){
-        super(name, salario);
+    public Cozinheiro(String nome, double salario, int habilidade, boolean preparandoPedido, boolean ehChefe){
+        super(nome, salario);
         this.habilidade = habilidade;
         this.preparandoPedido = preparandoPedido;
-        this.chefe = chefe;
+        this.ehChefe = ehChefe;
     }
     public int getHabilidade() {
         return this.habilidade;
@@ -33,9 +33,9 @@ public class Cozinheiro extends Funcionario{
         this.preparandoPedido = preparandoPedido;
     }
     public boolean getChefe() {
-        return this.chefe;
+        return this.ehChefe;
     }
     public void setChefe(boolean chefe) {
-        this.chefe = chefe;
+        this.ehChefe = ehChefe;
     }
 }
