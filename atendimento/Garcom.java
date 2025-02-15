@@ -13,7 +13,6 @@ public class Garcom extends Funcionario implements Pedido{
     }
 
     
-    @Override
     public double calcularSalario() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -27,6 +26,36 @@ public class Garcom extends Funcionario implements Pedido{
             }
         }
         System.out.println("Código inválido!! Não há prato com esse código");
+    }
+
+    
+    @Override
+    public double calculateSalary() {
+        
+    }
+
+    
+    //vai pegar um objeto do tipo cardapio e vai jogar pra cozinha, informando se é especial ou nn
+    @Override
+    public Pedido fazerPedido() {
+        
+    }
+
+    
+    @Override
+    public double getPreco(Cardapio prato) {
+        prato.getPratoPreco();
+    }
+
+    
+    @Override
+    public Cardapio consultarPrato(Cardapio prato) {
+        prato.mostrarPrato(prato.getPratoCodigo());
+    }
+
+    
+    public int getCodigo(Cardapio prato) {
+        prato.getPratoCodigo();
     }
     
 }
