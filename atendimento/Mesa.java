@@ -47,4 +47,19 @@ public class Mesa implements Pedido{
         totalGasto = 0;
         this.isOcupada = false;
     }
+    
+    @Override
+    public double getPreco(Cardapio prato) {
+        return prato.getPratoPreco();
+    }
+
+    @Override
+    public Cardapio consultarPrato(Cardapio prato) {
+        return prato.mostrarPrato(prato.getPratoCodigo());
+    }
+
+    @Override
+    public int getCodigo(Cardapio prato) {
+        return prato.getPratoCodigo();
+    }
 }
