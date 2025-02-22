@@ -31,6 +31,7 @@ public class Cozinha {
             for(Cozinheiro cozinheiro : getCozinheiros()){
                 if(cozinheiro instanceof CozinheiroEspecial){
                     ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(pedido.getCodigo());
+                    break;
                 }
             }
         }
