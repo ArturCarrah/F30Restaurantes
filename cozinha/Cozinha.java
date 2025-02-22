@@ -34,7 +34,10 @@ public class Cozinha {
                 }
             }
         }
-        
+
+        for(Cozinheiro cozinheiro : getCozinheiros()){
+            cozinheiro.prepararPedido(codigoPrato);
+        }
     }
 
 }
