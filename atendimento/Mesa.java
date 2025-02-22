@@ -39,7 +39,6 @@ public class Mesa implements Pedido{
         
         this.totalGasto = this.totalGasto + prato.getPreco();
 
-        // TO DO: Implementar um jeito de passar o prato pro garçom
         // O pedido tem que ir Mesa -> Garçom -> Cozinha
         
         Collections.shuffle(Restaurante.getListaGarcoms()); //Rearranjo aleatóriamente a lista dos garçons...
@@ -60,7 +59,7 @@ public class Mesa implements Pedido{
     // retorna o quanto deve ser pago e "limpa" a mesa
     public void pagarConta(double totalGasto) {
         System.out.println("O total pago pela mesa " + this.getNumeroMesa() + " foi:"  + totalGasto + "R$");
-        totalGasto = 0;
+        this.totalGasto = 0;
         this.isOcupada = false;
         Restaurante.setCaixaRestaurante(Restaurante.getCaixaRestaurante() + totalGasto);
     }

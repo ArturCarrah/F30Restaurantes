@@ -29,15 +29,20 @@ public class Cozinha {
     public void adicionarPedidoCozinha(Cardapio pedido){
         if(pedido.getEhEspecial() == true){
             for(Cozinheiro cozinheiro : getCozinheiros()){
-                if(cozinheiro instanceof CozinheiroEspecial){
-                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(pedido.getCodigo());
+                if(cozinheiro instanceof CozinheiroEspecial && cozinheiro.getPreparandoPedido() == false){
+                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(pedido);
                     break;
                 }
             }
         }
-
+        else{
         for(Cozinheiro cozinheiro : getCozinheiros()){
-            cozinheiro.prepararPedido(pedido);
+            if(cozinheiro.getPreparandoPedido() == false){
+                cozinheiro.prepararPedido(pedido);
+            }
+            
+        }
+
         }
     }
 
