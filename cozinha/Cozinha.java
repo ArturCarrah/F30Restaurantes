@@ -1,14 +1,14 @@
 package F30Restaurantes.cozinha;
 
-import F30Restaurantes.atendimento.Pedido;
+import F30Restaurantes.atendimento.Cardapio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cozinha {
     //PedidosSendoPrepados é um ArrayList de Pedido
-    private List<Pedido> pedidosSendoPreparados;
-    //Cozinheiros é um ArrayList de Pedido
+    private List<Cardapio> pedidosSendoPreparados;
+    //Cozinheiros é um ArrayList de Cozinheiro
     private List<Cozinheiro> cozinheiros;
 
     //Construtor
@@ -18,7 +18,7 @@ public class Cozinha {
     }
 
     //Getters
-    public List<Pedido> getPedidosSendoPreparados() {
+    public List<Cardapio> getPedidosSendoPreparados() {
         return pedidosSendoPreparados;
     }
 
@@ -26,6 +26,15 @@ public class Cozinha {
         return cozinheiros;
     }
 
-
+    public void adicionarPedidoCozinha(int codigoPrato, boolean ehEspecial){
+        if(ehEspecial == true){
+            for(Cozinheiro cozinheiro : getCozinheiros()){
+                if(cozinheiro instanceof CozinheiroEspecial){
+                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(codigoPrato);
+                }
+            }
+        }
+        
+    }
 
 }

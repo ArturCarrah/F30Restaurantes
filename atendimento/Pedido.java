@@ -7,13 +7,14 @@ public interface Pedido {
     
     // Na interface vamos declarar apenas os esqueletos
     // dos métodos a serem implementados
-    public Pedido fazerPedido();
+    
+    public void fazerPedido(Cardapio prato);
 
-    public double getPreco();
+    //public double getPreco();
 
-    public Cardapio consultarPrato();
+    //public Cardapio getPrato(Cardapio prato);
 
-    public int getCodigo();
+    //public int getCodigo();
 
     
 }

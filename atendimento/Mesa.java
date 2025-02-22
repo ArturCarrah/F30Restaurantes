@@ -1,11 +1,14 @@
 package F30Restaurantes.atendimento;
+import F30Restaurantes.Restaurante;
+
+
+import java.util.Collections;
 
 public class Mesa implements Pedido{
     private double totalGasto;
     private int numeroMesa;
     private boolean isOcupada;
     
-    // TO DO: implementar os métodos abstratos da interface Pedido
 
     public Mesa(int numeroMesa, boolean isOcupada) {
         this.numeroMesa = numeroMesa;
@@ -22,6 +25,10 @@ public class Mesa implements Pedido{
             System.out.println(prato.getCodigo() + " ....... " + prato.name() + " " + prato.getPreco() + "R$");
         }
     }
+
+    public Cardapio getPrato(Cardapio prato){
+        return prato;
+    }
     
 
     public void fazerPedido(Cardapio prato){
@@ -29,11 +36,20 @@ public class Mesa implements Pedido{
             this.isOcupada = true;
             // Se o pedido foi feito, então alguém está ocupando a mesa
         }
+        
         this.totalGasto = this.totalGasto + prato.getPreco();
 
         // TO DO: Implementar um jeito de passar o prato pro garçom
         // O pedido tem que ir Mesa -> Garçom -> Cozinha
+        
+        Collections.shuffle(Restaurante.getListaGarcoms()); //Rearranjo aleatóriamente a lista dos garçons...
 
+        Garcom garcomAtendendo = Restaurante.getListaGarcoms().get(0); //...e pego o primeiro garçom da nova lista para atender
+
+        garcomAtendendo.fazerPedido(prato); 
+        //Aqui a mesa repassa para o garçom o prato que ela deseja pedir e o garçom anota apenas o código do prato
+        //para enviar para a cozinha
+        
     }
 
 
@@ -47,19 +63,9 @@ public class Mesa implements Pedido{
         totalGasto = 0;
         this.isOcupada = false;
     }
+
     
-    @Override
-    public double getPreco(Cardapio prato) {
-        return prato.getPratoPreco();
-    }
+    
 
-    @Override
-    public Cardapio consultarPrato(Cardapio prato) {
-        return prato.mostrarPrato(prato.getPratoCodigo());
-    }
 
-    @Override
-    public int getCodigo(Cardapio prato) {
-        return prato.getPratoCodigo();
-    }
 }

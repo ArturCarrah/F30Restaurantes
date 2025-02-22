@@ -8,29 +8,28 @@ public abstract class Funcionario {
 
     
     public Funcionario(String nome, double salario) {
-        if (salario < 0) {
-            throw new IllegalArgumentException("O salário não pode ser negativo.");
+        if (salario < 1500) {
+            throw new IllegalArgumentException("O salário não pode ser menos que um salário mínimo.");
         }
+        else{
         this.nome = nome;
         this.salario = salario;
-        contadorFuncionarios++;
-        contadorFuncionarios++;
+        contadorFuncionarios++; //Toda vez que o construtor for acionado corretamente a quantidade de funcionários
+                                //vai aumentar em 1
+        }
     }
 
-
-    
     public static int getContadorFuncionarios() {
         return contadorFuncionarios;
     }
 
     public void setSalario(double salario) {
-        if (salario < 0) {
-            throw new IllegalArgumentException("O salário não pode ser negativo.");
+        if (salario < 1500) {
+            throw new IllegalArgumentException("O salário não pode ser menos que um salário mínimo.");
         }
-        if (salario < 0) {
-            throw new IllegalArgumentException("O salário não pode ser negativo.");
-        }
+        else{
         this.salario = salario;
+        }
     }
 
     @Override

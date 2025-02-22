@@ -1,13 +1,11 @@
 package F30Restaurantes.cozinha;
 
-import F30Restaurantes.cozinha.Cozinheiro;
-import F30Restaurantes.atendimento.Pedido;
 
 public class CozinheiroEspecial extends Cozinheiro {
     private int especialidade;
 
-    public CozinheiroEspecial(String nome, double salario, int habilidade, boolean preparandoPedido , boolean ehChefe, int especialidade) {
-        super(nome, salario, habilidade, preparandoPedido, ehChefe);
+    public CozinheiroEspecial(String nome, int habilidade, boolean ehChefe, int especialidade) {
+        super(nome, habilidade, ehChefe);
         this.especialidade = especialidade;
     }
 
@@ -18,7 +16,7 @@ public class CozinheiroEspecial extends Cozinheiro {
         return super.calcularSalario() + bonusEspecialidade;
     }
 
-    public void prepararPedidoEspecial(Pedido pedidoEspecial) {
+    public void prepararPedidoEspecial(int codigoPrato) {
 
     }
 
