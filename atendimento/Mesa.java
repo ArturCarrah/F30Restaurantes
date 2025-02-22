@@ -65,8 +65,4 @@ public class Mesa implements Pedido{
         Restaurante.setCaixaRestaurante(Restaurante.getCaixaRestaurante() + totalGasto);
     }
 
-    
-    
-
-
 }
