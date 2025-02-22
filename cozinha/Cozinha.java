@@ -1,6 +1,6 @@
-package trabalhotrinta.cozinha;
+package F30Restaurantes.cozinha;
 
-import trabalhotrinta.atendimento.Pedido;
+import F30Restaurantes.atendimento.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;

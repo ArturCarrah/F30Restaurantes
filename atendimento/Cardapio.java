@@ -1,4 +1,5 @@
-package trabalhotrinta.atendimento;
+package F30Restaurantes.atendimento;
+
 public enum Cardapio {
     PIZZA(30.0, 1),
     HAMBURGUER(25.0, 2),

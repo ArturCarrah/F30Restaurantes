@@ -1,6 +1,6 @@
-package trabalhotrinta.cozinha;
-import trabalhotrinta.cozinha.Cozinheiro;
-import trabalhotrinta.atendimento.Pedido;
+package F30Restaurantes.cozinha;
+
+import F30Restaurantes.atendimento.Pedido;
 
 public class CozinheiroEspecial extends Cozinheiro {
     private int especialidade;

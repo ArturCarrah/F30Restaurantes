@@ -1,6 +1,6 @@
-package trabalhotrinta.atendimento;
+package F30Restaurantes.atendimento;
 
-import trabalhotrinta.funcionario.Funcionario;
+import F30Restaurantes.funcionario.Funcionario;
 
 public class Garcom extends Funcionario implements Pedido{
     

@@ -1,4 +1,4 @@
-package trabalhotrinta.atendimento;
+package F30Restaurantes.atendimento;
 
 public class Mesa implements Pedido{
     private double totalGasto;

@@ -1,3 +1,5 @@
+package F30Restaurantes.funcionario;
+
 public abstract class Funcionario {
 
     protected final String nome;

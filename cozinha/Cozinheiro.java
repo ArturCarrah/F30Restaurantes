@@ -1,7 +1,7 @@
-package trabalhotrinta.cozinha;
+package F30Restaurantes.cozinha;
 
-import trabalhotrinta.atendimento.Pedido;
-import trabalhotrinta.funcionario.Funcionario;
+import F30Restaurantes.atendimento.Pedido;
+import F30Restaurantes.funcionario.Funcionario;
 
 public class Cozinheiro extends Funcionario {
     protected int habilidade;

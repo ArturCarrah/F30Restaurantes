@@ -1,4 +1,4 @@
-package trabalhotrinta.atendimento;
+package F30Restaurantes.atendimento;
 
 public interface Pedido {
     // Isso aqui não precisa pq já tá no enum
