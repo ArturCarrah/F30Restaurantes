@@ -26,17 +26,17 @@ public class Cozinha {
         return cozinheiros;
     }
 
-    public void adicionarPedidoCozinha(int codigoPrato, boolean ehEspecial){
-        if(ehEspecial == true){
+    public void adicionarPedidoCozinha(Cardapio pedido){
+        if(pedido.getEhEspecial() == true){
             for(Cozinheiro cozinheiro : getCozinheiros()){
                 if(cozinheiro instanceof CozinheiroEspecial){
-                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(codigoPrato);
+                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(pedido.getCodigo());
                 }
             }
         }
 
         for(Cozinheiro cozinheiro : getCozinheiros()){
-            cozinheiro.prepararPedido(codigoPrato);
+            cozinheiro.prepararPedido(pedido);
         }
     }
 

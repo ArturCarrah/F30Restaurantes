@@ -33,7 +33,7 @@ public class Garcom extends Funcionario implements Pedido{
         for(Cardapio prato : Cardapio.values()) {
             if(pratoSolicitado.getCodigo() == prato.getCodigo()) {
 
-                Restaurante.getCozinha().adicionarPedidoCozinha(pratoSolicitado.getCodigo(), pratoSolicitado.getEhEspecial());
+                Restaurante.getCozinha().adicionarPedidoCozinha(pratoSolicitado);
                 mesasServidas++;
                 break;
             }
