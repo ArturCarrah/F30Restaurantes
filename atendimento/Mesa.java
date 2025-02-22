@@ -62,6 +62,7 @@ public class Mesa implements Pedido{
         System.out.println("O total pago pela mesa " + this.getNumeroMesa() + " foi:"  + totalGasto + "R$");
         totalGasto = 0;
         this.isOcupada = false;
+        Restaurante.setCaixaRestaurante(Restaurante.getCaixaRestaurante() + totalGasto);
     }
 
     
