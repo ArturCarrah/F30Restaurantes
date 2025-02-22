@@ -8,6 +8,15 @@ import F30Restaurantes.cozinha.Cozinha;
 public class Restaurante {
     static List<Garcom> listaGarcoms = new ArrayList<Garcom>();
     static Cozinha cozinha;
+    private static double caixaRestaurante = 0;
+
+    public static double getCaixaRestaurante(){
+        return caixaRestaurante;
+    }
+
+    public static void setCaixaRestaurante(double dinheiro){
+        caixaRestaurante = dinheiro;
+    }
 
     public static List<Garcom> getListaGarcoms(){
         return listaGarcoms;
