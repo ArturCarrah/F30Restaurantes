@@ -14,7 +14,9 @@ public class Garcom extends Funcionario implements Pedido{
 
     
     public double calcularSalario() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //O Salário do garçom vai ser igual ao seu salário inicial mais um bonus por mesas servidas.
+        double bonusPorMesa = 10.0;
+        return salario + (mesasServidas * bonusPorMesa);
     }
     
     

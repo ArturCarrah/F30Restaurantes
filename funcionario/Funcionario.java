@@ -1,37 +1,34 @@
-package trabalhotrinta.funcionario;
-
 public abstract class Funcionario {
 
     protected final String nome;
     protected double salario;
     private static int contadorFuncionarios = 0;
 
-    
-    //create treatment for supplying invalid parameters
-    public Funcionario (String nome, double salario) {
+    public Funcionario(String nome, double salario) {
+        if (salario < 0) {
+            throw new IllegalArgumentException("O salário não pode ser negativo.");
+        }
         this.nome = nome;
         this.salario = salario;
-        contadorFuncionarios;
+        contadorFuncionarios++;
     }
 
-    
     public static int getContadorFuncionarios() {
-
         return contadorFuncionarios;
     }
-    
-    
+
     public void setSalario(double salario) {
+        if (salario < 0) {
+            throw new IllegalArgumentException("O salário não pode ser negativo.");
+        }
         this.salario = salario;
     }
 
-    //we use override to reuse the object class's toString method, instead of creating a showInfo() method
     @Override
     public String toString() {
-        return "Nome: " + nome + "\nSalario: " + String.valueOf(salario);
+        return "Nome: " + nome + "\nSalario: " + salario;
     }
 
-
-    //each subclass must define its own way of calculating salary based on the employer's role
+    //Cada classe vai implementar seu próprio método de calcular o salário.
     public abstract double calcularSalario();
 }

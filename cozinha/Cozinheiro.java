@@ -14,7 +14,16 @@ public class Cozinheiro extends Funcionario {
 
     @Override
     public double calcularSalario() {
-        return 0;
+        double bonusHabilidade = habilidade * 50.0; // Exemplo: cada nível de habilidade adiciona R$50
+        // Se for chefe, recebe um bônus fixo
+        double bonusChefe;
+        if (ehChefe) {
+            bonusChefe = 500.0;
+        } else {
+            bonusChefe = 0.0;
+        }
+
+        return salario + bonusHabilidade + bonusChefe;
     }
 
     public Cozinheiro(String nome, double salario, int habilidade, boolean preparandoPedido, boolean ehChefe){
