@@ -1,6 +1,7 @@
 package F30Restaurantes.cozinha;
 
-import F30Restaurantes.atendimento.Pedido;
+import F30Restaurantes.Restaurante;
+import F30Restaurantes.atendimento.Cardapio;
 import F30Restaurantes.funcionario.Funcionario;
 
 public class Cozinheiro extends Funcionario {
@@ -17,8 +18,9 @@ public class Cozinheiro extends Funcionario {
         this.salario = calcularSalario();
     }
     
-    public void prepararPedido(Pedido pedido){
+    public void prepararPedido(Cardapio pedido){
         preparandoPedido = true;
+        Restaurante.getCozinha().getPedidosSendoPreparados().add(pedido);
     }
 
     @Override
