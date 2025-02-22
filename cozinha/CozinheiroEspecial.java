@@ -1,5 +1,6 @@
 package F30Restaurantes.cozinha;
 
+import F30Restaurantes.cozinha.Cozinheiro;
 import F30Restaurantes.atendimento.Pedido;
 
 public class CozinheiroEspecial extends Cozinheiro {

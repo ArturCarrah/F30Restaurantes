@@ -6,6 +6,7 @@ public abstract class Funcionario {
     protected double salario;
     private static int contadorFuncionarios = 0;
 
+    
     public Funcionario(String nome, double salario) {
         if (salario < 0) {
             throw new IllegalArgumentException("O salário não pode ser negativo.");
@@ -13,13 +14,19 @@ public abstract class Funcionario {
         this.nome = nome;
         this.salario = salario;
         contadorFuncionarios++;
+        contadorFuncionarios++;
     }
 
+
+    
     public static int getContadorFuncionarios() {
         return contadorFuncionarios;
     }
 
     public void setSalario(double salario) {
+        if (salario < 0) {
+            throw new IllegalArgumentException("O salário não pode ser negativo.");
+        }
         if (salario < 0) {
             throw new IllegalArgumentException("O salário não pode ser negativo.");
         }
