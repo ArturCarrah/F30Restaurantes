@@ -13,7 +13,7 @@ public abstract class Funcionario {
             throw new NomeInvalidoException("O nome do funcionário não pode ser vazio ou nulo.");
         }
         if (salario < 0) {
-            throw new SalarioInvalidoException("O salário não pode ser menos que um salário mínimo.");
+            throw new SalarioInvalidoException("O salário não pode ser negativo.");
         }
 
         this.nome = nome;
@@ -28,7 +28,7 @@ public abstract class Funcionario {
 
     public void setSalario(double salario) throws SalarioInvalidoException {
         if (salario < 0) {
-            throw new SalarioInvalidoException("O salário não pode ser menos que um salário mínimo.");
+            throw new SalarioInvalidoException("O salário não pode ser negativo.");
         }
         this.salario = salario;
     }
@@ -42,6 +42,6 @@ public abstract class Funcionario {
         return "Nome: " + nome + "\nSalario: " + salario;
     }
 
-    //Cada classe vai implementar seu próprio método de calcular o salário.
+    //Cada classe vai implementar seu próprio metodo de calcular o salário.
     public abstract double calcularSalario();
 }
