@@ -2,6 +2,7 @@ package F30Restaurantes.cozinha;
 
 import F30Restaurantes.Restaurante;
 import F30Restaurantes.atendimento.Cardapio;
+import F30Restaurantes.excecoes.NomeInvalidoException;
 
 public class CozinheiroEspecial extends Cozinheiro {
     private int especialidade;
@@ -14,7 +15,6 @@ public class CozinheiroEspecial extends Cozinheiro {
 
     @Override
     public double calcularSalario() {
-        // Exemplo: cada nível de especialidade dá R$75 extras
         double bonusEspecialidade = especialidade * 75.0;
         return super.calcularSalario() + bonusEspecialidade;
     }
