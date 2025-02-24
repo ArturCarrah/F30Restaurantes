@@ -53,7 +53,7 @@ public class Restaurante {
 
 
     static List<Garcom> listaGarcons = new ArrayList<Garcom>();
-    static Cozinha cozinha;
+    static Cozinha cozinha = new Cozinha();
 
     public static double getCaixaRestaurante(){
         return caixaRestaurante;
@@ -63,7 +63,7 @@ public class Restaurante {
         caixaRestaurante = dinheiro;
     }
 
-    public static List<Garcom> getListaGarcoms(){
+    public static List<Garcom> getListaGarcons(){
         return listaGarcons;
     }
 
@@ -71,12 +71,15 @@ public class Restaurante {
         return cozinha;
     }
 
-    public double calcularSalarioFuncionarios(List<Garcom> listaGarcoms, Cozinha cozinha){
+    public double calcularSalarioFuncionarios(){
         double gastoSalarios = 0;
+
+        listaGarcons = Restaurante.getListaGarcons();
+
 
         //Percorremos a lista de garçons, calculando o salário
         //de cada um e somando
-        for(Garcom garcom : listaGarcoms){
+        for(Garcom garcom : listaGarcons){
             gastoSalarios += garcom.calcularSalario();
         }
 

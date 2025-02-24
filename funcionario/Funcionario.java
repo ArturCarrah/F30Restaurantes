@@ -8,7 +8,7 @@ public abstract class Funcionario {
     protected double salario;
     private static int contadorFuncionarios = 0;
 
-    public Funcionario(String nome, double salario) {
+    public Funcionario(String nome, double salario) throws NomeInvalidoException, SalarioInvalidoException {
         if (nome == null || nome.trim().isEmpty() ) {
             throw new NomeInvalidoException("O nome do funcionário não pode ser vazio ou nulo.");
         }
@@ -26,11 +26,15 @@ public abstract class Funcionario {
         return contadorFuncionarios;
     }
 
-    public void setSalario(double salario) {
+    public void setSalario(double salario) throws SalarioInvalidoException {
         if (salario < 0) {
             throw new SalarioInvalidoException("O salário não pode ser menos que um salário mínimo.");
         }
         this.salario = salario;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     @Override

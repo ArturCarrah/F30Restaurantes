@@ -6,13 +6,13 @@ import F30Restaurantes.funcionario.Funcionario;
 import F30Restaurantes.excecoes.CozinheiroIndisponivelException;
 import F30Restaurantes.excecoes.ParametroNegativoException;
 
-public class Cozinheiro extends Funcionario {
+public class Cozinheiro extends Funcionario{
     protected int habilidade;
     protected boolean preparandoPedido;
     protected boolean ehChefe;
     protected static final double SALARIO_BASE_COZINHEIRO = 3000.0;
 
-    public Cozinheiro(String nome, int habilidade, boolean ehChefe) {
+    public Cozinheiro(String nome, int habilidade, boolean ehChefe) throws ParametroNegativoException {
         super(nome, 0);//O salário do cozinheiro vai ser calculado com base nas suas habilidades
         if(habilidade < 0){
             throw new ParametroNegativoException("A habilidade do cozinheiro não pode ser negativa.");
@@ -25,7 +25,7 @@ public class Cozinheiro extends Funcionario {
         Restaurante.getCozinha().getCozinheiros().add(this);
     }
 
-    public void prepararPedido(Cardapio pedido) {
+    public void prepararPedido(Cardapio pedido) throws CozinheiroIndisponivelException{
         if(preparandoPedido == false) {
             setPreparandoPedido(true);
             Restaurante.getCozinha().getPedidosSendoPreparados().add(pedido);

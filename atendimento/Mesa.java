@@ -41,9 +41,9 @@ public class Mesa implements Pedido{
 
         // O pedido tem que ir Mesa -> Garçom -> Cozinha
         
-        Collections.shuffle(Restaurante.getListaGarcoms()); //Rearranjo aleatóriamente a lista dos garçons...
+        Collections.shuffle(Restaurante.getListaGarcons()); //Rearranjo aleatóriamente a lista dos garçons...
 
-        Garcom garcomAtendendo = Restaurante.getListaGarcoms().get(0); //...e pego o primeiro garçom da nova lista para atender
+        Garcom garcomAtendendo = Restaurante.getListaGarcons().get(0); //...e pego o primeiro garçom da nova lista para atender
 
         garcomAtendendo.fazerPedido(prato); 
         //Aqui a mesa repassa para o garçom o prato que ela deseja pedir e o garçom anota apenas o código do prato
