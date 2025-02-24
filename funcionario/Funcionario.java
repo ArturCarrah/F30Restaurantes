@@ -18,6 +18,7 @@ public abstract class Funcionario {
 
         this.nome = nome;
         this.salario = salario;
+        //Toda vez que o construtor for acionado corretamente a quantidade de funcionário, vai aumentar em 1
         contadorFuncionarios++;
     }
 
@@ -37,5 +38,6 @@ public abstract class Funcionario {
         return "Nome: " + nome + "\nSalario: " + salario;
     }
 
+    //Cada classe vai implementar seu próprio método de calcular o salário.
     public abstract double calcularSalario();
 }

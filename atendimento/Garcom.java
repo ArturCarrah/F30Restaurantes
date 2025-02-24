@@ -11,7 +11,7 @@ public class Garcom extends Funcionario implements Pedido {
     private static final double BONUS_POR_MESA = 10.0;
 
     public Garcom(String nome) {
-        super(nome, 0);
+        super(nome, 0); //O salário será calculado com base no número de mesas atendidas
 
         this.salario = SALARIO_BASE_GARCOM;
         this.mesasServidas = 0;
@@ -19,6 +19,7 @@ public class Garcom extends Funcionario implements Pedido {
 
     @Override
     public double calcularSalario() {
+        //O Salário do garçom vai ser igual ao seu salário inicial mais um bonus por mesas servidas.
         return SALARIO_BASE_GARCOM + (mesasServidas * BONUS_POR_MESA);
     }
 
