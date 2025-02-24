@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import F30Restaurantes.atendimento.*;
 import F30Restaurantes.cozinha.Cozinha;
+import F30Restaurantes.cozinha.Cozinheiro;
+
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -46,5 +48,22 @@ public class Restaurante {
         return cozinha;
     }
 
+    public double calcularSalarioFuncionarios(List<Garcom> listaGarcoms, Cozinha cozinha){
+        double gastoSalarios = 0;
+
+        //Percorremos a lista de garçons, calculando o salário
+        //de cada um e somando
+
+        for(Garcom garcom : listaGarcoms){
+            gastoSalarios += garcom.calcularSalario();
+        }
+
+        //Agora percorremos a lista de cozinheiros
+
+        for(Cozinheiro cozinheiro : cozinha.getCozinheiros()){
+            gastoSalarios += cozinheiro.calcularSalario();
+        }
+        return gastoSalarios;
+    }
 
 }
