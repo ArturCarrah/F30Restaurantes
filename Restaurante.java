@@ -5,6 +5,7 @@ import java.util.List;
 import F30Restaurantes.atendimento.*;
 import F30Restaurantes.cozinha.Cozinha;
 import F30Restaurantes.cozinha.Cozinheiro;
+import F30Restaurantes.cozinha.CozinheiroEspecial;
 
 import java.util.Queue;
 import java.util.LinkedList;
@@ -27,10 +28,32 @@ public class Restaurante {
             mesasVazias.add(new Mesa(i, false));
         }
     }
+    //Instanciando os garçons e cozinheiros.
+    Garcom garcom1 = new Garcom("Carlos");
+    Garcom garcom2 = new Garcom("Ana");
+    Garcom garcom3 = new Garcom("Lucas");
+    Garcom garcom4 = new Garcom("Maria");
+    Garcom garcom5 = new Garcom("Ricardo");
+    Garcom garcom6 = new Garcom("Juliana");
+    Garcom garcom7 = new Garcom("Sofia");
+    Garcom garcom8 = new Garcom("Pedro");
+    Garcom garcom9 = new Garcom("Gabriela");
+    Garcom garcom10 = new Garcom("João");
 
-    static List<Garcom> listaGarcoms = new ArrayList<Garcom>();
+    Cozinheiro cozinheiro1 = new Cozinheiro("Eduardo", 5, false);
+    Cozinheiro cozinheiro2 = new Cozinheiro("Fernanda", 8, false);
+    Cozinheiro cozinheiro3 = new Cozinheiro("Ricardo", 10, false);
+    Cozinheiro cozinheiro4 = new Cozinheiro("Juliana", 3, false);
+    Cozinheiro cozinheiro5 = new Cozinheiro("Carlos", 7, false);
+    Cozinheiro cozinheiro6 = new Cozinheiro("Camila", 9, true);
+    Cozinheiro cozinheiro7 = new Cozinheiro("Pedro", 6, false);
+    Cozinheiro cozinheiro8 = new Cozinheiro("Isabela",10,true);
+    CozinheiroEspecial cozinheiroEspecial1 = new CozinheiroEspecial("Gustavo", 9, true, 3);
+    CozinheiroEspecial cozinheiroEspecial2 = new CozinheiroEspecial("Beatriz",7,false,5);
+
+
+    static List<Garcom> listaGarcons = new ArrayList<Garcom>();
     static Cozinha cozinha;
-
 
     public static double getCaixaRestaurante(){
         return caixaRestaurante;
@@ -41,7 +64,7 @@ public class Restaurante {
     }
 
     public static List<Garcom> getListaGarcoms(){
-        return listaGarcoms;
+        return listaGarcons;
     }
 
     public static Cozinha getCozinha(){
@@ -53,7 +76,6 @@ public class Restaurante {
 
         //Percorremos a lista de garçons, calculando o salário
         //de cada um e somando
-
         for(Garcom garcom : listaGarcoms){
             gastoSalarios += garcom.calcularSalario();
         }
@@ -65,5 +87,14 @@ public class Restaurante {
         }
         return gastoSalarios;
     }
+
+    public Restaurante(){
+
+         List<Garcom> listaGarcons = new ArrayList<Garcom>();
+         Cozinha cozinha = new Cozinha();
+
+
+    }
+
 
 }

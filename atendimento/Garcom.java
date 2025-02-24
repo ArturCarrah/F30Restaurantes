@@ -12,9 +12,9 @@ public class Garcom extends Funcionario implements Pedido {
 
     public Garcom(String nome) {
         super(nome, 0); //O salário será calculado com base no número de mesas atendidas
-
         this.salario = SALARIO_BASE_GARCOM;
         this.mesasServidas = 0;
+        Restaurante.getListaGarcoms().add(this);
     }
 
     @Override

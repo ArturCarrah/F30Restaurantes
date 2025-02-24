@@ -22,6 +22,7 @@ public class Cozinheiro extends Funcionario {
         this.preparandoPedido = false;  //Ao se criar o cozinheiro ele não está preparando nenhum pedido, afinal, acabou de chegar
         this.ehChefe = ehChefe;
         this.salario = calcularSalario();
+        Restaurante.getCozinha().getCozinheiros().add(this);
     }
 
     public void prepararPedido(Cardapio pedido) {
