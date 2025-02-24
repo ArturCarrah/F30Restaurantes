@@ -3,8 +3,8 @@ package F30Restaurantes.cozinha;
 import F30Restaurantes.Restaurante;
 import F30Restaurantes.atendimento.Cardapio;
 import F30Restaurantes.funcionario.Funcionario;
-import F30Restaurantes.excecoes.NomeInvalidoException;
 import F30Restaurantes.excecoes.CozinheiroIndisponivelException;
+import F30Restaurantes.excecoes.ParametroNegativoException;
 
 public class Cozinheiro extends Funcionario {
     protected int habilidade;
@@ -13,7 +13,11 @@ public class Cozinheiro extends Funcionario {
     protected static final double SALARIO_BASE_COZINHEIRO = 3000.0;
 
     public Cozinheiro(String nome, int habilidade, boolean ehChefe) {
-        super(nome, 0);     //O salário do cozinheiro vai ser calculado com base nas suas habilidades
+        super(nome, 0);//O salário do cozinheiro vai ser calculado com base nas suas habilidades
+        if(habilidade < 0){
+            throw new ParametroNegativoException("A habilidade do cozinheiro não pode ser negativa.");
+        }
+
         this.habilidade = habilidade;
         this.preparandoPedido = false;  //Ao se criar o cozinheiro ele não está preparando nenhum pedido, afinal, acabou de chegar
         this.ehChefe = ehChefe;
@@ -34,10 +38,20 @@ public class Cozinheiro extends Funcionario {
 
     @Override
     public double calcularSalario() {
-        double bonusHabilidade = habilidade * 50.0;
-        double bonusChefe = ehChefe ? 500.0 : 0.0;
+        double bonusHabilidade = habilidade * 50.0; // Exemplo: cada nível de habilidade adiciona R$50
+
+        // Se for chefe, recebe um bônus fixo
+        double bonusChefe;
+
+        if (ehChefe == true) {   //Redundante, mas legível
+            bonusChefe = 500.0;
+        } else {
+            bonusChefe = 0.0;
+        }
+
         return SALARIO_BASE_COZINHEIRO + bonusHabilidade + bonusChefe;
     }
+
 
     public int getHabilidade() {
         return this.habilidade;

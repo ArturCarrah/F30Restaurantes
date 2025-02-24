@@ -3,12 +3,16 @@ package F30Restaurantes.cozinha;
 import F30Restaurantes.Restaurante;
 import F30Restaurantes.atendimento.Cardapio;
 import F30Restaurantes.excecoes.NomeInvalidoException;
+import F30Restaurantes.excecoes.ParametroNegativoException;
 
 public class CozinheiroEspecial extends Cozinheiro {
     private int especialidade;
 
     public CozinheiroEspecial(String nome, int habilidade, boolean ehChefe, int especialidade) {
         super(nome, habilidade, ehChefe);
+        if(especialidade < 0){
+            throw new ParametroNegativoException("A Especialidade do cozinheiro não pode ser negativa.");
+        }
         this.especialidade = especialidade;
         this.salario = calcularSalario();
     }
