@@ -1,6 +1,7 @@
 package F30Restaurantes.cozinha;
 
 import F30Restaurantes.atendimento.Cardapio;
+import F30Restaurantes.excecoes.CozinheiroIndisponivelException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,24 +27,23 @@ public class Cozinha {
         return cozinheiros;
     }
 
-    public void adicionarPedidoCozinha(Cardapio pedido){
-        if(pedido.getEhEspecial() == true){
-            for(Cozinheiro cozinheiro : getCozinheiros()){
-                if(cozinheiro instanceof CozinheiroEspecial && cozinheiro.getPreparandoPedido() == false){
-                    ((CozinheiroEspecial)cozinheiro).prepararPedidoEspecial(pedido);
-                    break;
-                }
+    public void adicionarPedidoCozinha(Cardapio pedido) {
+    if (pedido.getEhEspecial()) {
+        for (Cozinheiro cozinheiro : getCozinheiros()) {
+            if (cozinheiro instanceof CozinheiroEspecial && !cozinheiro.getPreparandoPedido()) {
+                ((CozinheiroEspecial) cozinheiro).prepararPedidoEspecial(pedido);
+                return;
             }
         }
-        else{
-        for(Cozinheiro cozinheiro : getCozinheiros()){
-            if(cozinheiro.getPreparandoPedido() == false){
+    } else {
+        for (Cozinheiro cozinheiro : getCozinheiros()) {
+            if (!cozinheiro.getPreparandoPedido()) {
                 cozinheiro.prepararPedido(pedido);
+                return;
             }
-            
-        }
-
         }
     }
+    throw new CozinheiroIndisponivelException("Nenhum cozinheiro disponível para preparar o pedido.");
+}
 
 }

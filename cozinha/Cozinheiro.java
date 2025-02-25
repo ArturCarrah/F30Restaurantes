@@ -2,60 +2,44 @@ package F30Restaurantes.cozinha;
 
 import F30Restaurantes.Restaurante;
 import F30Restaurantes.atendimento.Cardapio;
-import F30Restaurantes.funcionario.Funcionario;
 import F30Restaurantes.excecoes.CozinheiroIndisponivelException;
-import F30Restaurantes.excecoes.ParametroNegativoException;
+import F30Restaurantes.funcionario.Funcionario;
 
-public class Cozinheiro extends Funcionario{
+public class Cozinheiro extends Funcionario {
     protected int habilidade;
     protected boolean preparandoPedido;
     protected boolean ehChefe;
+    protected double bonusHabilidade = habilidade * 50.0; // Cada nível de habilidade adiciona R$50 ao salário
+    protected double bonusChefe = ehChefe ? 500.0 : 0.0; // Bônus adicional se for chefe
     protected static final double SALARIO_BASE_COZINHEIRO = 3000.0;
 
-    public Cozinheiro(String nome, int habilidade, boolean ehChefe) throws ParametroNegativoException {
-        super(nome, 0);//O salário do cozinheiro vai ser calculado com base nas suas habilidades
-        if(habilidade < 0){
-            throw new ParametroNegativoException("A habilidade do cozinheiro não pode ser negativa.");
-        }
-
+    public Cozinheiro(String nome, int habilidade, int funcaoNumero, boolean ehChefe) {
+        super(nome, 0, 2); // Salário será calculado com base nas habilidades
         this.habilidade = habilidade;
-        this.preparandoPedido = false;  //Ao se criar o cozinheiro ele não está preparando nenhum pedido, afinal, acabou de chegar
+        this.preparandoPedido = false; // Inicialmente, o cozinheiro não está preparando nenhum pedido
         this.ehChefe = ehChefe;
         this.salario = calcularSalario();
         Restaurante.getCozinha().getCozinheiros().add(this);
     }
 
-    public void prepararPedido(Cardapio pedido) throws CozinheiroIndisponivelException{
-        if(preparandoPedido == false) {
-            setPreparandoPedido(true);
-            Restaurante.getCozinha().getPedidosSendoPreparados().add(pedido);
-            setPreparandoPedido(false);
+    public void prepararPedido(Cardapio pedido) throws CozinheiroIndisponivelException {
+        if (!preparandoPedido) {
+            setPreparandoPedido(true); // Marca o cozinheiro como ocupado
+            Restaurante.getCozinha().getPedidosSendoPreparados().add(pedido); // Adiciona o pedido à lista de pedidos sendo preparados
+            setPreparandoPedido(false); // Marca o cozinheiro como disponível novamente
+        } else {
+            throw new CozinheiroIndisponivelException("O cozinheiro não está disponível.");
         }
-        else{
-            throw new CozinheiroIndisponivelException("O cozinheiro não está disponível");
-        }
-
     }
 
     @Override
     public double calcularSalario() {
-        double bonusHabilidade = habilidade * 50.0; // Exemplo: cada nível de habilidade adiciona R$50
-
-        // Se for chefe, recebe um bônus fixo
-        double bonusChefe;
-
-        if (ehChefe == true) {   //Redundante, mas legível
-            bonusChefe = 500.0;
-        } else {
-            bonusChefe = 0.0;
-        }
-
         return SALARIO_BASE_COZINHEIRO + bonusHabilidade + bonusChefe;
     }
 
-
+    // Getters e Setters
     public int getHabilidade() {
-        return this.habilidade;
+        return habilidade;
     }
 
     public void setHabilidade(int habilidade) {
@@ -63,7 +47,7 @@ public class Cozinheiro extends Funcionario{
     }
 
     public boolean getPreparandoPedido() {
-        return this.preparandoPedido;
+        return preparandoPedido;
     }
 
     public void setPreparandoPedido(boolean preparandoPedido) {
@@ -71,10 +55,10 @@ public class Cozinheiro extends Funcionario{
     }
 
     public boolean getChefe() {
-        return this.ehChefe;
+        return ehChefe;
     }
 
-    public void setChefe(boolean chefe) {
-        this.ehChefe = chefe;
+    public void setChefe(boolean ehChefe) {
+        this.ehChefe = ehChefe;
     }
 }

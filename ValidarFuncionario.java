@@ -1,9 +1,12 @@
-package excecoes;
+package F30Restaurantes;
 
-import F30Restaurante.Restaurante;
-import atendimento.Garcom;
-import cozinha.Cozinheiro;
-import cozinha.CozinheiroEspecial;
+import F30Restaurantes.Restaurante;
+import F30Restaurantes.excecoes.NomeInvalidoException;
+import F30Restaurantes.excecoes.ParametroNegativoException;
+import F30Restaurantes.excecoes.SalarioInvalidoException;
+import F30Restaurantes.atendimento.Garcom;
+import F30Restaurantes.cozinha.Cozinheiro;
+import F30Restaurantes.cozinha.CozinheiroEspecial;
 
 public class ValidarFuncionario {
     public void validarFuncionarios(Restaurante restaurante) {

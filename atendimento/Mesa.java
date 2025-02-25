@@ -1,8 +1,11 @@
 package F30Restaurantes.atendimento;
+
 import F30Restaurantes.Restaurante;
+import F30Restaurantes.excecoes.PedidoInvalidoException;
 
 
 import java.util.Collections;
+import java.util.Random;
 
 public class Mesa implements Pedido{
     private double totalGasto;
@@ -31,24 +34,29 @@ public class Mesa implements Pedido{
     }
     
 
-    public void fazerPedido(Cardapio prato){
-        if(this.isOcupada == false){
+    public void fazerPedido(Cardapio prato) {
+        if (!this.isOcupada) {
             this.isOcupada = true;
-            // Se o pedido foi feito, então alguém está ocupando a mesa
         }
-        
-        this.totalGasto = this.totalGasto + prato.getPreco();
 
-        // O pedido tem que ir Mesa -> Garçom -> Cozinha
-        
-        Collections.shuffle(Restaurante.getListaGarcons()); //Rearranjo aleatóriamente a lista dos garçons...
+        this.totalGasto += prato.getPreco();
 
-        Garcom garcomAtendendo = Restaurante.getListaGarcons().get(0); //...e pego o primeiro garçom da nova lista para atender
+        // Verifica se há garçons disponíveis
+        if (Restaurante.getListaGarcons().isEmpty()) {
+            throw new IllegalStateException("Nenhum garçom disponível para atender a mesa.");
+        }
 
-        garcomAtendendo.fazerPedido(prato); 
-        //Aqui a mesa repassa para o garçom o prato que ela deseja pedir e o garçom anota apenas o código do prato
-        //para enviar para a cozinha
-        
+        // Escolhe um garçom aleatório
+        Random random = new Random();
+        int indiceGarcom = random.nextInt(Restaurante.getListaGarcons().size());
+        Garcom garcomAtendendo = Restaurante.getListaGarcons().get(indiceGarcom);
+
+        // Garçom anota o pedido
+        try {
+            garcomAtendendo.fazerPedido(prato);
+        } catch (PedidoInvalidoException e) {
+            System.out.println("Erro ao fazer pedido: " + e.getMessage());
+        }
     }
 
 

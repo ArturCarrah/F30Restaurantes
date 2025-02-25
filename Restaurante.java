@@ -1,12 +1,14 @@
-package F30Restaurante;
+package F30Restaurantes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.LinkedList;
-import atendimento.*;
-import cozinha.*;
-import funcionario.Funcionario;
+
+import F30Restaurantes.atendimento.*;
+import F30Restaurantes.cozinha.Cozinha;
+import F30Restaurantes.cozinha.Cozinheiro;
+import F30Restaurantes.funcionario.*;
 
 public class Restaurante {
     private static final int NUMERO_MESAS = 30;
@@ -24,7 +26,7 @@ public class Restaurante {
     }
 
     // Getters e Setters
-    public static Iterable<Garcom> getListaGarcoms() {
+    public static List<Garcom> getListaGarcoms() {
         return listaGarcons;
     }
 

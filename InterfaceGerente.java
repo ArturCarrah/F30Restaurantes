@@ -1,4 +1,4 @@
-package F30Restaurante;
+package F30Restaurantes;
 
 import javax.swing.*;
 import java.awt.*;

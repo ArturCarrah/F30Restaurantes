@@ -1,13 +1,16 @@
-package F30Restaurante;
+package F30Restaurantes;
 
-import atendimento.Garcom;
-import cozinha.Cozinheiro;
-import excecoes.*;
-import funcionario.Funcionario;
-import cozinha.CozinheiroEspecial;
-import atendimento.Cardapio;
+import F30Restaurantes.atendimento.Garcom;
+import F30Restaurantes.cozinha.Cozinheiro;
+import F30Restaurantes.excecoes.*;
+import F30Restaurantes.funcionario.Funcionario;
+import F30Restaurantes.cozinha.CozinheiroEspecial;
+import F30Restaurantes.atendimento.Cardapio;
 
 import java.util.Random;
+
+import F30Restaurantes.excecoes.ParametroNegativoException;
+import F30Restaurantes.excecoes.PedidoInvalidoException;
 
 public class RestauranteTeste {
     public static void main(String[] args) {
