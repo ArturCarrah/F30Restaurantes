@@ -1,47 +1,103 @@
-package F30Restaurantes;
+package F30Restaurante;
 
-import F30Restaurantes.atendimento.Garcom;
-import F30Restaurantes.cozinha.Cozinheiro;
-import F30Restaurantes.excecoes.*;
-import F30Restaurantes.funcionario.Funcionario;
-import F30Restaurantes.cozinha.CozinheiroEspecial;
+import atendimento.Garcom;
+import cozinha.Cozinheiro;
+import excecoes.*;
+import funcionario.Funcionario;
+import cozinha.CozinheiroEspecial;
+import atendimento.Cardapio;
 
-import static F30Restaurantes.Restaurante.listaGarcons;
+import java.util.Random;
 
 public class RestauranteTeste {
-        //Instanciando os garçons e cozinheiros.
-        Garcom garcom1 = new Garcom("");
-        Garcom garcom2 = new Garcom("Ana");
-        Garcom garcom3 = new Garcom("Lucas");
-        Garcom garcom4 = new Garcom("Maria");
-        Garcom garcom5 = new Garcom("Ricardo");
-        Garcom garcom6 = new Garcom("Juliana");
-        Garcom garcom7 = new Garcom("Sofia");
-        Garcom garcom8 = new Garcom("Pedro");
-        Garcom garcom9 = new Garcom("Gabriela");
-        Garcom garcom10 = new Garcom("João");
-
-        Cozinheiro cozinheiro1 = new Cozinheiro("Eduardo", 5, false);
-        Cozinheiro cozinheiro2 = new Cozinheiro("Fernanda", 8, false);
-        Cozinheiro cozinheiro3 = new Cozinheiro("Ricardo", 10, false);
-        Cozinheiro cozinheiro4 = new Cozinheiro("Juliana", 3, false);
-        Cozinheiro cozinheiro5 = new Cozinheiro("Carlos", 7, false);
-        Cozinheiro cozinheiro6 = new Cozinheiro("Camila", 9, true);
-        Cozinheiro cozinheiro7 = new Cozinheiro("Pedro", 6, false);
-        Cozinheiro cozinheiro8 = new Cozinheiro("Isabela", 10, true);
-        CozinheiroEspecial cozinheiroEspecial1 = new CozinheiroEspecial("Gustavo", 9, true, 3);
-        CozinheiroEspecial cozinheiroEspecial2 = new CozinheiroEspecial("Beatriz", 7, false, 5);
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        // Criar uma instância de Restaurante
         Restaurante F30 = new Restaurante();
+
+        // --- ADICIONAR FUNCIONÁRIOS ÀS LISTAS ESTÁTICAS ---
+        // Adicionar garçons à lista estática
+        try {
+            new Garcom("Felix");
+            new Garcom("Ana");
+            new Garcom("Lucas");
+            new Garcom("Maria");
+            new Garcom("Ricardo");
+            new Garcom("Juliana");
+            new Garcom("Sofia");
+            new Garcom("Pedro");
+            new Garcom("Gabriela");
+            new Garcom("João");
+
+            // Adicionar um garçom com nome inválido para testar a exceção
+            Restaurante.getListaGarcons().add(new Garcom("")); // Nome inválido
+        } catch (NomeInvalidoException | SalarioInvalidoException | FuncaoInvalidaException e) {
+            System.out.println("Erro ao adicionar garçom: " + e.getMessage());
+        }
+
+        // Adicionar cozinheiros à lista estática
+        try {
+            new Cozinheiro("Eduardo", 5, 2, false);
+            new Cozinheiro("Fernanda", 8, 2, false);
+            new Cozinheiro("Ricardo", 10, 2, false);
+            new Cozinheiro("Juliana", 3, 2, false);
+            new Cozinheiro("Carlos", 7, 2, false);
+            new Cozinheiro("Camila", 9, 2, true);
+            new Cozinheiro("Pedro", 6, 2, false);
+            new Cozinheiro("Isabela", 10, 2, true);
+            new CozinheiroEspecial("Gustavo", 9, 2, true, 3);
+            new CozinheiroEspecial("Beatriz", 7, 2, false, 5);
+        } catch (NomeInvalidoException | SalarioInvalidoException | ParametroNegativoException | FuncaoInvalidaException e) {
+            System.out.println("Erro ao adicionar cozinheiro: " + e.getMessage());
+        }
+
+        // --- SIMULAR PEDIDOS ---
+        Random random = new Random();
+        for (Garcom garcom : Restaurante.getListaGarcons()) {
+            int quantidadePedidos = random.nextInt(5) + 1; // Cada garçom faz de 1 a 5 pedidos
+            System.out.println("\nGarçom " + garcom.getNome() + " está fazendo " + quantidadePedidos + " pedidos:");
+
+            for (int i = 0; i < quantidadePedidos; i++) {
+                try {
+                    // Escolhe um item aleatório do cardápio
+                    Cardapio item = Cardapio.values()[random.nextInt(Cardapio.values().length)];
+                    garcom.fazerPedido(item); // Faz o pedido
+
+                    // Exibe detalhes do pedido
+                    System.out.println("Pedido " + (i + 1) + ": " + item.name() +
+                            " (Código: " + item.getCodigo() +
+                            ", Preço: R$ " + item.getPreco() +
+                            ", Especial: " + (item.getEhEspecial() ? "Sim" : "Não") + ")");
+
+                    // Verifica se o pedido precisa ser preparado por um cozinheiro especial
+                    if (item.getEhEspecial()) {
+                        System.out.println("  --> Este pedido precisa ser preparado por um cozinheiro especial.");
+                    }
+                } catch (PedidoInvalidoException e) {
+                    System.out.println("Erro ao fazer pedido: " + e.getMessage());
+                }
+            }
+        }
+
+        // --- VALIDAR FUNCIONÁRIOS ---
         ValidarFuncionario validar = new ValidarFuncionario();
         try {
             validar.validarFuncionarios(F30);
-        } catch (Exception e) {
+        } catch (NomeInvalidoException e) {
             System.out.println("Erro encontrado: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Outro erro encontrado: " + e.getMessage());
         }
 
-        System.out.println(F30.calcularSalarioFuncionarios());
+        // --- EXIBIR SALÁRIOS DOS FUNCIONÁRIOS ---
+        System.out.println("\n> Salários dos funcionários:");
+        for (Funcionario f : Restaurante.getListaFuncionarios()) {
+            System.out.println(f.getFuncao() + " " + f.getNome() + ": R$ " + f.calcularSalario());
+        }
+
+        // --- CALCULAR E EXIBIR O TOTAL DE SALÁRIOS ---
+        System.out.println("\nTotal de salários a pagar: R$ " + F30.calcularSalarioFuncionarios());
+
+        // --- EXIBIR O TOTAL DE FUNCIONÁRIOS ---
         System.out.println("Total de funcionários: " + Funcionario.getContadorFuncionarios());
     }
-
 }
